@@ -2,61 +2,60 @@
 
 clear
 
+function pacman_install(){
+    
+    # Compruebo si ya está instalado:
+    if pacman -Qs $1 | grep "local/$1" &> /dev/null; then
+    
+        echo "✅ $1 está instalado, no se hace nada"
+    
+    else
+    
+        echo "💾 Instalando $1"
+        sudo pacman -S --noconfirm $1
+    
+    fi
+}
+
+function yay_install(){
+    
+    # Convierto el argumento 1 en minusculas
+    arg_lower=$(echo $1 | awk '{print tolower($0)}')
+    
+    # Compruebo si ya está instalado:
+    if command -v $arg_lower &> /dev/null; then
+    
+        echo "✅ $1 ya está instalado, no se hace nada."
+    
+    else
+    
+        echo "💾 Instalando $1..."
+        yay -S --noconfirm $2
+    
+    fi    
+
+}
+
 # Previews de las Miniaturas de archivos de blender
-if pacman -Qs kdegraphics-thumbnailers &> /dev/null; then
-    echo "✅ Kde Graphics Thumbnailers está instalado, no se hace nada"
-else
-    echo "💾 Instalando Kde Graphics Thumbnailers"
-    sudo pacman -S kdegraphics-thumbnailers
-fi
+pacman_install "kdegraphics-thumbnailers"
 
 # Extras para Kio (mejoras en files a traves de la red)
-if pacman -Qs kio-extras &> /dev/null; then
-    echo "✅ Kio Extras está instalado, no se hace nada"
-else
-    echo "💾 Instalando Kio Extras"
-    sudo pacman -S kio-extras
-fi
+pacman_install "kio-extras"
 
 # Previews de miniauras de los videos
-if pacman -Qs ffmpegthumbs &> /dev/null; then
-    echo "✅ ffmpegthumbs está instalado, no se hace nada"
-else
-    echo "💾 Instalando ffmpegthumbs"
-    sudo pacman -S ffmpegthumbs
-fi
+pacman_install "ffmpegthumbs"
 
 # Instalando Ark
-if pacman -Qs ark | grep "local/ark" &> /dev/null; then
-    echo "✅ Ark está instalado, no se hace nada"
-else
-    echo "💾 Instalando Ark"
-    sudo pacman -S ark
-fi
+pacman_install "ark"
 
 # Instalando 7z
-if pacman -Qs 7z &> /dev/null; then
-    echo "✅ p7zip está instalado, no se hace nada"
-else
-    echo "💾 Instalando p7zip"
-    sudo pacman -S p7zip
-fi
+pacman_install "p7zip"
 
-if command -v keepassxc &> /dev/null; then
-    echo "✅ keepassxc está instalado, no se hace nada"
-else
-    echo "💾 Instalando keepassxc"
-    sudo pacman -S keepassxc
-fi
+# Instalando KeePassXC
+pacman_install "keepassxc"
 
 # chequeo si existe git:
-if command -v git &> /dev/null; then
-    echo "✅ Git ya está instalado, no se hace nada"
-else
-    echo "💾 Instalando Git..."
-    sudo pacman -S git
-
-fi
+pacman_install "git"
 
 # chequeo si existe yay:
 if command -v yay &> /dev/null; then
@@ -69,45 +68,19 @@ else
 fi
 
 # Instalando Brave
-if command -v brave &> /dev/null; then
-    echo "✅ Brave ya está instalado, no se hace nada."
-else
-    echo "💾 Instalando Brave..."
-    yay -S brave-bin
-fi
+yay_install "Brave" "brave-bin"
 
 # Instalando Discord
-if command -v discord &> /dev/null; then
-    echo "✅ Discord ya está instalado, no se hace nada."
-else
-    echo "💾 Instalando Discord..."
-    yay -S discord
-fi
+yay_install "Discord" "discord"
 
 # Instalando Obsidian
-if command -v obsidian &> /dev/null; then
-    echo "✅ Obsidian ya está instalado, no se hace nada."
-else
-    echo "💾 Instalando Obsidian..."
-    yay -S obsidian
-fi
+yay_install "Obsidian" "obsidian"
 
 # Instalando GPU Screen Recorder
-if command -v gpu-screen-recorder &> /dev/null; then
-    echo "✅ gpu-screen-recorder ya está instalado, no se hace nada."
-else
-    echo "💾 Instalando gpu-screen-recorder..."
-    yay -S gpu-screen-recorder
-fi
+yay_install "Gpu-Screen-Recorder" "gpu-screen-recorder"
 
 # Instalando VSC
-if command -v code &> /dev/null; then
-    echo "✅ Visual Studio Code ya está instalado, no se hace nada."
-else
-    echo "💾 Instalando Visual Studio Code..."
-    yay -S visual-studio-code-bin
-fi
-
+yay_install "Code" "visual-studio-code-bin"
 
 # Configurando VSC
 CURRENT_EXTENSIONS=$(code --list-extensions);
@@ -182,20 +155,9 @@ else
 fi
 
 # Instalando Github-Desktop (da conflicto y no instala)
-# if command -v github-desktop &> /dev/null; then
-#     echo "✅ Github Desktop ya está instalado, no se hace nada."
-# else
-#     echo "💾 Instalando Github Desktop..."
-#     yay -S github-desktop-bin
-# fi
+# yay_install "Github-Desktop" "github-desktop-bin"
 
-if command -v flatpak &> /dev/null; then
-    echo "✅ flatpak está instalado, no se hace nada"
-else
-    echo "💾 Instalando flatpak"
-    sudo pacman -S flatpak
-fi
-
+pacman_install "flatpak"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # Instalando Github-Desktop
