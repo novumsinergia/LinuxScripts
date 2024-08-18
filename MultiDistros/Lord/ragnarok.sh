@@ -1,5 +1,9 @@
 #!/bin/bash
-#Estoes un script para usod e todos
+: 'Esto es un sccript automatizado que identifica si estas usando una distribucion base  Arch, Debian, Fedora  u OpenSuse y es capaz de identificar tu sistema 
+ operativo y en base a eso te pedira actualizar tu sistema, identificara si tienes flatpak o snap y  te pedira si los quieres actualizar. tambien te pedira 
+limpiar los paquetes huerfanos y la cache del gestor de paquetes, asi como  limpiar los temporales alojados en /tmp y la papaelra de reciclaje o ./trash'
+
+
 echo " _______                                                           __                  ______                      _               _    ";
 echo "|_   __ \                                                         [  |  _            .' ____ \                    (_)             / |_  ";
 echo "  | |__) |    ,--.     .--./)  _ .--.    ,--.    _ .--.    .--.    | | / ]   ______  | (___ \_|  .---.   _ .--.   __    _ .--.   \`| |-' ";
