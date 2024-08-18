@@ -8,6 +8,7 @@ SETTINGS_FILE="settings.json"
 FULLPATH="$DEST_PATH/$SETTINGS_FILE"
 FLATHUB_REPO="https://dl.flathub.org/repo/flathub.flatpakrepo"
 
+
 # Función genérica para instalar paquetes
 function install_package() {
   
@@ -33,6 +34,22 @@ function install_package() {
         fi
     fi
 }
+
+
+function code_install_extension() {
+    
+    # Escapamos los puntos para construir la regex
+    regex=$(echo $2 | sed "s/\./\\\./g")
+
+    # Comprobamos si la extensión ya está instalada
+    if ! [[ "$1" =~ $regex ]]; then
+        echo "💾 Instalando extensión $2"
+        code --install-extension $2
+    else
+        echo "✅ La extensión $2 ya está instalada"
+fi
+}
+
 
 # Instalación de paquetes con Pacman
 pacman_packages=(
