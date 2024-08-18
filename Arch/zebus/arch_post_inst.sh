@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+
+: '
+    Este script sirve para despues de instalar arch, instalar todo el software que normalmente utilizo 
+    incluidas las extensiones de Visual Studio Code, para poder tener todo lo que necesito de manera 
+    fácil y sencilla y rápida. Solo faltaría personalizar kde y revisar los alias.
+'
+
 clear
 
 # Variables
