@@ -113,6 +113,9 @@ else
         echo "💾 Escribiendo $SETTINGS_FILE..."
         mkdir -p "$DEST_PATH"
         cp "$SETTINGS_FILE" "$FULLPATH"
+
+        # Reemplazo el dummy ####USER#### por el usuario real actual: 
+        sed -i "s@####USER####@$USER@g" $FULLPATH
     fi
 fi
 
