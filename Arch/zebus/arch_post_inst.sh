@@ -48,13 +48,16 @@ function install_package() {
 
 function code_install_extension() {
     
-    # Escapamos los puntos para construir la regex
-    regex=$(echo $2 | sed "s/\./\\\./g")
+    # Convertimos a minusculas el nombre de la extensión por si acaso:
+    ext_name_lower=$(echo "$2" | awk '{print tolower($0)}')
 
-    # Comprobamos si la extensión ya está instalada
+    # Escapamos los puntos para construir el regex con el nombre de la extensión:
+    regex=$(echo $ext_name_lower | sed "s/\./\\\./g")
+    
+    # Comprobamos si la extensión ya está instalada:
     if ! [[ "$1" =~ $regex ]]; then
         echo "💾 Instalando extensión $2"
-        code --install-extension $2
+        code --install-extension $ext_name_lower
     else
         echo "✅ La extensión $2 ya está instalada"
 fi
