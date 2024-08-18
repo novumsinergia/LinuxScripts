@@ -74,6 +74,7 @@ pacman_packages=(
     "keepassxc"
     "git"
     "flatpak"
+    "telegram-desktop"
 )
 
 for package in "${pacman_packages[@]}"; do
