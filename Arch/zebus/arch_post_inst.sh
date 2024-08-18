@@ -97,7 +97,7 @@ done
 CURRENT_EXTENSIONS=$(code --list-extensions)
 
 vscode_extensions=(
-    "jacquesLucke.blender-development"
+    "JacquesLucke.blender-development"
     "eamodio.gitlens"
     "vscode-icons-team.vscode-icons"
     "ms-python.debugpy"
