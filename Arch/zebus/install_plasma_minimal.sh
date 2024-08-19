@@ -46,6 +46,9 @@ pacman_packages=(
     "gst-libav"
     "ffmpeg4.4"
     "sddm"
+    "kdegraphics-thumbnailers"
+    "kio-extras"
+    "ffmpegthumbs"
 )
 
 for package in "${pacman_packages[@]}"; do

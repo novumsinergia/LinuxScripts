@@ -66,9 +66,6 @@ fi
 
 # Instalación de paquetes con Pacman
 pacman_packages=(
-    "kdegraphics-thumbnailers"
-    "kio-extras"
-    "ffmpegthumbs"
     "ark"
     "p7zip"
     "keepassxc"
