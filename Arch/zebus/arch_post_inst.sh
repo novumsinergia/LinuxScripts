@@ -66,8 +66,6 @@ fi
 
 # Instalación de paquetes con Pacman
 pacman_packages=(
-    "ark"
-    "p7zip"
     "keepassxc"
     "git"
     "flatpak"
