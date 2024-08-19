@@ -2,26 +2,18 @@
 
 function install_package() {
   
-    local package_manager=$1
-    local package_name=$2
-    local command_check=$3
+    local package_name=$1
 
     # Comprobar si el paquete ya está instalado
-    if command -v $command_check &> /dev/null || pacman -Qs $package_name | grep "local/$package_name" &> /dev/null; then
+    if command -v $package_name &> /dev/null || pacman -Qs $package_name | grep "local/$package_name" &> /dev/null; then
     
         echo "✅ $package_name ya está instalado, no se hace nada."
     
     else
         
         echo "💾 Instalando $package_name..."
-        
-        if [[ $package_manager == "pacman" ]]; then
-            sudo pacman -S --noconfirm $package_name
+        sudo pacman -S --noconfirm $package_name
 
-        elif [[ $package_manager == "yay" ]]; then
-            yay -S --noconfirm $package_name
-        
-        fi
     fi
 }
 
@@ -57,5 +49,5 @@ pacman_packages=(
 )
 
 for package in "${pacman_packages[@]}"; do
-    install_package "pacman" "$package" "$package"
+    install_package "$package"
 done
