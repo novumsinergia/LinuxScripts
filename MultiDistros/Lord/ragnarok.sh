@@ -1,9 +1,9 @@
 #!/bin/bash
 : 'Este script permite actualizar  todo el sistema detectando si su disitribucion es base Debian, Arch , Fedora u Opensuse. 
-Posterior a la actualizacion completa del sistema procedera a al deteccion de  paquetes flatpak y snap pidiendole si desea actualizarlos
- y continuara con una limpiesa de los paquetes huerfanos , y la cache del gestor de paquetes, tambien los temporales del sistema
-y la papelera de recicalje. Todas estas operaciones seran realizada con confimracion del usuario,
- para gestionar una buena seguridad en la implementacion del script'
+Posterior a la actualizacion completa del sistema procedera a al deteccion de  paquetes flatpak y snap pidiendole 
+si desea actualizarlos  y continuara con una limpiesa de los paquetes huerfanos , y la cache del gestor de paquetes, 
+tambien los temporales del sistema y la papelera de recicalje. Todas estas operaciones seran realizada con confimracion 
+del usuario, para gestionar una buena seguridad en la implementacion del script'
 echo " _______                                                           __                  ______                      _               _    ";
 echo "|_   __ \                                                         [  |  _            .' ____ \                    (_)             / |_  ";
 echo "  | |__) |    ,--.     .--./)  _ .--.    ,--.    _ .--.    .--.    | | / ]   ______  | (___ \_|  .---.   _ .--.   __    _ .--.   \`| |-' ";
