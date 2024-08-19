@@ -1,0 +1,20 @@
+#!/bin/sh
+# Get the ID of the current desktop
+current_desktop_id=$(wmctrl -d | grep '*' | cut -d ' ' -f 1)
+#~ # Get list of windows
+window_list=$(wmctrl -l -x | awk -v current_desktop="$current_desktop_id" '$2 == current_desktop {print $1}')
+#Specify offsets
+horizontal_offset=30
+vertical_offset=30
+
+#Iterate through windows and position them with offsets
+#Nominate starting point. Avoid 0,0 and maybe push x further out to allow Home iconspace
+x=58
+y=2
+for window_id in $window_list
+do
+  wmctrl -ia $window_id #Bring each window to top. Is this giving full focus?? Maybe faulty. MM: now fixed ;-)
+  wmctrl -ir $window_id -e 0,$x,$y,-1,-1  # Position window with offsets
+  x=$((x + horizontal_offset))  # Increment x and y with steps and offsets
+  y=$((y + vertical_offset))
+done

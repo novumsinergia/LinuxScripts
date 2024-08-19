@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Copyright 2017 Elieser Díaz <simbiosis@nauta.cu>
+#
+# NOTE: The use and distribution of this software is governed by the terms in
+# the file LICENSE, which is included in the package. You must read this and
+# agree to these terms before using or distributing this software.
+#
+# This script was created to restore pinboard after the first reboot when pelusasave file is created
+#
+
+ cd /root/Choices/ROX-Filer/
+ cp /root/Choices/ROX-Filer/PuppyPin.bak /root/Choices/ROX-Filer/PuppyPin
+ restartwm
