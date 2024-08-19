@@ -1,8 +1,4 @@
 #!/bin/bash
-: 'Esto es un sccript automatizado que identifica si estas usando una distribucion base  Arch, Debian, Fedora  u OpenSuse y es capaz de identificar tu sistema 
- operativo y en base a eso te pedira actualizar tu sistema, identificara si tienes flatpak o snap y  te pedira si los quieres actualizar. tambien te pedira 
-limpiar los paquetes huerfanos y la cache del gestor de paquetes, asi como  limpiar los temporales alojados en /tmp y la papaelra de reciclaje o ./trash'
-
 
 echo " _______                                                           __                  ______                      _               _    ";
 echo "|_   __ \                                                         [  |  _            .' ____ \                    (_)             / |_  ";
@@ -13,9 +9,6 @@ echo "|____| |___| \'-;__/  .',__\`  [___||__] \'-;__/ [___]     '.__.'  [__|  \
 echo "                     ( ( __))                                                                                          [__|             ";
                                                                                                                                          
 
-
-
-
 echo " ____  _____                                                       ______     _                                         _           ";
 echo "|_   \|_   _|                                                    .' ____ \   (_)                                       (_)          ";
 echo "  |   \ | |     .--.    _   __   __   _    _ .--..--.    ______  | (___ \_|  __    _ .--.    .---.   _ .--.    .--./)  __    ,--.   ";
@@ -24,11 +17,9 @@ echo " _| |_\   |_  | \__. |  \ \/ /   | \_/ |,  | | | | | |           | \____) 
 echo "|_____|\____|  '.__.'    \__/    '.__.'_/ [___||__||__]           \______.' [___] [___||__]  '.__.' [___]     .',__\`  [___] \'-;__/ ";
 echo "                                                                                                             ( ( __))               ";
 
-
 echo "╔═╗┬─┐┌─┐┬ ┬┌─┐┌─┐┌┬┐┌─┐  ╦  ┬┌┐┌┬ ┬─┐ ┬┌─┐┬─┐┌─┐  ╦ ╦┬┌─┐┌─┐┌─┐┌┐┌┌─┐┬ ┬┌─┐┌┐ ┬  ┌─┐┌┐┌┌┬┐┌─┐";
 echo "╠═╝├┬┘│ │└┬┘├┤ │   │ │ │  ║  │││││ │┌┴┬┘├┤ ├┬┘│ │  ╠═╣│└─┐├─┘├─┤││││ │├─┤├─┤├┴┐│  ├─┤│││ │ ├┤ ";
 echo "╩  ┴└─└─┘ ┴ └─┘└─┘ ┴ └─┘  ╩═╝┴┘└┘└─┘┴ └─└─┘┴└─└─┘  ╩ ╩┴└─┘┴  ┴ ┴┘└┘└─┘┴ ┴┴ ┴└─┘┴─┘┴ ┴┘└┘ ┴ └─┘";
-
 echo
 # Función para imprimir texto con formato
 print_text() {
@@ -37,26 +28,18 @@ print_text() {
     echo -ne "$(tput setaf $color)$(tput bold)$text$(tput sgr0)"
 }
 
-# Texto en ASCII
-ascii_text() {
-    local text="$1"
-    local color="$2"
-    echo -ne "$(tput setaf $color)$(tput bold)$text$(tput sgr0)"
-}
-
 # Mostrar el texto formateado
 print_text "Escrito por: " 2
-ascii_text "Lord_Sith_Muldorgs" 4
-ascii_text " y " 5
-ascii_text "ArcMetatron" 6
+print_text "Lord_Sith_Muldorgs" 4
+print_text " y " 5
+print_text "ArcMetatron" 6
 echo
 echo
-
-
 # Este script permite al usuario seleccionar su gestor de paquetes y realizar varias operaciones de mantenimiento del sistema.
 # En esta actualizaciòn se elimina la pregunta al usuario del Sistema utilizado y se detecta automàticamente cual es el sistema instalado por su #gestor de paquetes
-echo "EN ESTE SCRIPT POR REALIZARSE ALGUNAS OPERACIONES ADMINISTRATIVAS SE LE PEDIRÁ AL USUARIO VARIAS VECES SU CONTRASEÑA, SEA RESPONSABLE EN LA IMPLEMENTACIÓN DEL MISMO"
-
+# Mostrar el mensaje en el mismo color que "Lord_Sith_Muldorgs"
+print_text "EN ESTE SCRIPT POR REALIZARSE ALGUNAS OPERACIONES ADMINISTRATIVAS SE LE PEDIRÁ AL USUARIO VARIAS VECES SU CONTRASEÑA, SEA RESPONSABLE EN LA IMPLEMENTACIÓN DEL MISMO" 4
+echo
 function base_action(){
    temp=true
    while $temp;do
