@@ -3,6 +3,11 @@
     "workbench.iconTheme": "vscode-icons",
     "blender.executables": [
         {
+            "path": "/home/####USER####/Descargas/Blenders/blender-4.2.1-linux-x64/blender",
+            "name": "Blender 4.2.1",
+            "isDebug": false
+        },
+        {
             "path": "/home/####USER####/Descargas/Blenders/blender-4.2.0-linux-x64/blender",
             "name": "Blender 4.2.0",
             "isDebug": false
