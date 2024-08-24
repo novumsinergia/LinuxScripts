@@ -81,6 +81,17 @@ for package in "${pacman_packages[@]}"; do
     install_package "pacman" "$package" "$package"
 done
 
+
+# Chequeo si existe yay, y sino lo instalamos:
+if command -v yay &> /dev/null; then
+    echo "✅ Yay ya está instalado, no se hace nada."
+else
+    echo "💾 Instalando yay..."
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -sri
+fi
+
 # Instalar yay si no está instalado
 install_package "pacman" "yay" "yay"
 
