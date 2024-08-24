@@ -92,9 +92,6 @@ else
     makepkg -sri
 fi
 
-# Instalar yay si no está instalado
-install_package "pacman" "yay" "yay"
-
 # Instalación de paquetes con Yay
 yay_packages=(
     "brave-bin"
