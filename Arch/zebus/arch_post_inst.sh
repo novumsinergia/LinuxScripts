@@ -73,6 +73,8 @@ pacman_packages=(
     "mesa"
     "mesa-demos"
     "noto-fonts-emoji"
+    "reflector"
+    "rsync"
 )
 
 for package in "${pacman_packages[@]}"; do
