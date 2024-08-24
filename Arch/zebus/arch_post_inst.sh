@@ -70,6 +70,9 @@ pacman_packages=(
     "git"
     "flatpak"
     "telegram-desktop"
+    "mesa"
+    "mesa-demos"
+    "noto-fonts-emoji"
 )
 
 for package in "${pacman_packages[@]}"; do
