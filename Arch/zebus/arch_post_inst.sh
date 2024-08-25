@@ -87,6 +87,7 @@ if command -v yay &> /dev/null; then
     echo "✅ Yay ya está instalado, no se hace nada."
 else
     echo "💾 Instalando yay..."
+    cd $HOME
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -sri
