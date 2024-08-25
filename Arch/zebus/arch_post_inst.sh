@@ -100,6 +100,7 @@ yay_packages=(
     "obsidian"
     "gpu-screen-recorder"
     "visual-studio-code-bin"
+    "anydesk-bin"
 )
 
 for package in "${yay_packages[@]}"; do
