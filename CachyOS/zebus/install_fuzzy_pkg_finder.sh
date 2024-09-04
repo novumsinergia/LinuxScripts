@@ -12,6 +12,5 @@ yay_packages=(
 )
 
 for package in "${yay_packages[@]}"; do
-    install_package "yay" "$package" "$(echo $package | awk -F'-' '{print $1}')"
+    install_package "yay" "$package" "fpf"
 done
-

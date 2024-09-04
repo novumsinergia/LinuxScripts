@@ -57,7 +57,6 @@ for package in "${yay_packages[@]}"; do
     else
         install_package "yay" "$package" "$(echo $package | awk -F'-' '{print $1}')"
     fi
-
 done
 
 # Configuración de extensiones de VSCode

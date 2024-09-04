@@ -5,7 +5,6 @@ function install_package() {
     local package_name=$2
     local command_check=$3
 
-
     # Comprobar si el paquete ya está instalado
     if command -v $command_check &> /dev/null || pacman -Qs $package_name | grep "local/$package_name" &> /dev/null; then
     
