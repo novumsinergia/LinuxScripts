@@ -72,6 +72,7 @@ vscode_extensions=(
     "ms-vscode.cpptools-themes"
     "seanwu.vscode-qt-for-python"
     "twxs.cmake"
+    "fuzzy-pkg-finder"
 )
 
 for extension in "${vscode_extensions[@]}"; do
