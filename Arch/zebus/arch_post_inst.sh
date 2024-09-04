@@ -50,10 +50,15 @@ yay_packages=(
     "gpu-screen-recorder"
     "visual-studio-code-bin"
     "anydesk-bin"
+    "fuzzy-pkg-finder"
 )
 
 for package in "${yay_packages[@]}"; do
-    install_package "yay" "$package" "$(echo $package | awk -F'-' '{print $1}')"
+    if [[ "$package" == "fuzzy-pkg-finder" ]]; then
+        install_package "yay" "$package" "fpf"
+    else
+        install_package "yay" "$package" "$(echo $package | awk -F'-' '{print $1}')"
+    fi
 done
 
 # Configuración de extensiones de VSCode
@@ -72,7 +77,6 @@ vscode_extensions=(
     "ms-vscode.cpptools-themes"
     "seanwu.vscode-qt-for-python"
     "twxs.cmake"
-    "fuzzy-pkg-finder"
 )
 
 for extension in "${vscode_extensions[@]}"; do
