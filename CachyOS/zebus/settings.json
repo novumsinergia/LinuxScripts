@@ -12,7 +12,6 @@
     "git.confirmSync": false,
     "git.autofetch": true,
     "cmake.showOptionsMovedNotification": false,
-    "git.openRepositoryInParentFolders": "never",
     "qtForPython.qmlls.enabled": false,
     "vsicons.dontShowNewVersionMessage": true,
     "blender.executables": [
