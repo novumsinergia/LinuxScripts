@@ -1,6 +1,19 @@
 {
     "telemetry.telemetryLevel": "off",
     "workbench.iconTheme": "vscode-icons",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.idea": true,
+        "**/.vscode": true,
+        "**/.venv": true
+    },
+    "blender.addon.reloadOnSave": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "cmake.showOptionsMovedNotification": false,
+    "qtForPython.qmlls.enabled": false,
+    "vsicons.dontShowNewVersionMessage": true,
     "blender.executables": [
         {
             "path": "/home/####USER####/Descargas/Blenders/blender-4.2.1-linux-x64/blender",
@@ -16,19 +29,6 @@
             "path": "/home/####USER####/Descargas/Blenders/blender-4.1.1-linux-x64/blender",
             "name": "Blender 4.1.1",
             "isDebug": false
-        },
+        }
     ],
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/.idea": true,
-        "**/.vscode": true,
-        "**/.venv": true
-    },
-    "blender.addon.reloadOnSave": true,
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    "git.autofetch": true,
-    "cmake.showOptionsMovedNotification": false,
-    "git.openRepositoryInParentFolders": "never",
-    "qtForPython.qmlls.enabled": false,
 }
