@@ -1,6 +1,7 @@
 {
     "telemetry.telemetryLevel": "off",
     "workbench.iconTheme": "vscode-icons",
+    "window.titleBarStyle": "custom",
     "files.exclude": {
         "**/__pycache__": true,
         "**/.idea": true,
