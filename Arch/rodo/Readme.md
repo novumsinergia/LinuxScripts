@@ -33,7 +33,7 @@ El script instala los siguientes paquetes:
   - `plasma-framework5`, `kinfocenter`, `grub-customizer`
   - Navegadores y aplicaciones de comunicación: `firefox`, `telegram-desktop`
   - Herramientas de edición: `kdenlive`, `obs-studio`, `audacity`,
-  - ofimática`libreoffice-fresh-es`
+  - Ofimática: `libreoffice-fresh-es`
 
 - **Características adicionales**:
   - Cartera de KDE Plasma desactivada por defecto
