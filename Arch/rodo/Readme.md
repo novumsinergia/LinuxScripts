@@ -17,6 +17,7 @@ El script instala los siguientes paquetes:
 - **Aplicaciones adicionales**:
   - `kwalletmanager`
   - `kdeplasma-addons`
+  - `ufw gufw` (cortafuegos)
   - `spectacle` (captura de pantalla)
   - `dolphin` (explorador de archivos)
   - `konsole` (terminal)
@@ -31,7 +32,8 @@ El script instala los siguientes paquetes:
   - `unrar`, `p7zip`, `partitionmanager`, `plasma-systemmonitor`, `kcalc`, `kde-gtk-config`, `breeze-gtk`
   - `plasma-framework5`, `kinfocenter`, `grub-customizer`
   - Navegadores y aplicaciones de comunicación: `firefox`, `telegram-desktop`
-  - Herramientas de edición: `kdenlive`, `obs-studio`, `audacity`, `libreoffice-fresh-es`
+  - Herramientas de edición: `kdenlive`, `obs-studio`, `audacity`,
+  - ofimática`libreoffice-fresh-es`
 
 - **Características adicionales**:
   - Cartera de KDE Plasma desactivada por defecto
