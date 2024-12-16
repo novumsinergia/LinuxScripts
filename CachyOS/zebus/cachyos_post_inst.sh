@@ -35,6 +35,7 @@ pacman_packages=(
     "reflector"
     "rsync"
     "cronie"
+    "inkscape"
 )
 
 for package in "${pacman_packages[@]}"; do
