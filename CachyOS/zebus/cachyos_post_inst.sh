@@ -34,6 +34,7 @@ pacman_packages=(
     "noto-fonts-emoji"
     "reflector"
     "rsync"
+    "cronie"
 )
 
 for package in "${pacman_packages[@]}"; do
@@ -112,3 +113,14 @@ for app in "${flatpak_apps[@]}"; do
         echo "✅ $app ya está instalado."
     fi
 done
+
+
+# Comprobar si el servicio cronie está habilitado
+if ! systemctl is-enabled cronie.service &> /dev/null; then
+    echo "Habilitando el servicio cronie..."
+    sudo systemctl enable cronie.service
+    sudo systemctl start cronie.service
+    echo "Servicio cronie habilitado y iniciado."
+else
+    echo "El servicio cronie ya está habilitado."
+fi
