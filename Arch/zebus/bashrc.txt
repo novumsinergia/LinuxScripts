@@ -1,0 +1,43 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias ll='ls -al'
+alias act='echo -e "\033[32mActualizaciones Pacman:\033[m" && sudo pacman -Syu && echo -e "\n\033[36mActualizacione AUR:\033[m" && yay -Sua && echo -e "\n\033[34mActualizaciones Flatpak:\033[m" && flatpak update'
+
+# Por defecto en EOS:
+# PS1='[\u@\h \W]\$ '
+
+# Chuleta de colores:
+# Negro		\e[30m
+# Rojo		\e[31m
+# Verde		\e[32m
+# Amarillo	\e[33m
+# Azul		\e[34m
+# Magenta	\e[35m
+# Cian		\e[36m
+# Blanco	\e[37m
+
+# Colores definidos:
+WHITE='\[\e[37m\]'
+GREEN='\[\e[32m\]'
+BLUE='\[\e[34m\]'
+RESET='\[\e[0m\]'
+RED='\[\e[31m\]'
+
+# Detectar si el usuario es root
+if [ "$(id -u)" -eq 0 ]; then
+    USER_COLOR=${RED}
+    PROMPT_SYMBOL="#"
+else
+    USER_COLOR=${GREEN}
+    PROMPT_SYMBOL="$"
+fi
+
+# Configurar PS1 utilizando las variables de color
+PS1="${WHITE}[${USER_COLOR}\u${WHITE}@${BLUE}\h ${WHITE}\W]${PROMPT_SYMBOL} ${RESET}"
