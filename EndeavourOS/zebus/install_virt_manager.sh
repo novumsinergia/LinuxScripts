@@ -79,8 +79,8 @@ if [[ -f "$CONFIG_FILE" ]]; then
     echo_success "Copia de seguridad creada en ${CONFIG_FILE}${BACKUP_SUFFIX}"
 
     echo_info "Modificando $CONFIG_FILE..."
-    sed -i '/unix_sock_group/s/^#//g' "$CONFIG_FILE"
-    sed -i '/unix_sock_rw_perms/s/^#//g' "$CONFIG_FILE"
+    sed -i '/unix_sock_group/s/^#//' "$CONFIG_FILE"
+    sed -i '/unix_sock_rw_perms/s/^#//' "$CONFIG_FILE"
     echo_success "Configuración de $CONFIG_FILE actualizada."
 else
     echo_error "El archivo $CONFIG_FILE no existe. Saliendo..."
