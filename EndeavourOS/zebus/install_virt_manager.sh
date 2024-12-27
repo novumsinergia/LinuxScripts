@@ -51,7 +51,9 @@ PACKAGES=(
     iptables-nft    # Linux kernel packet control tool (using nft interface)
     edk2-ovmf       # for uefi (en otras distros ovmf)
     swtpm           # TPM emulator with socket
+    vde2            # Virtual Distributed Ethernet for emulators like qemu
 )
+
 
 # ----------------------------------------
 # Actualizar el sistema
