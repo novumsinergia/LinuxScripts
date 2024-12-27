@@ -125,12 +125,12 @@ pacman -Rns --noconfirm "${PACKAGES[@]}"
 echo_success "Paquetes desinstalados correctamente."
 
 # ----------------------------------------
-# Eliminar directorios de configuración de libvirt si existen
+# Eliminar directorios de configuración de libvirt si existen, preservando /var/lib/libvirt/images
 # ----------------------------------------
 LIBVIRT_DIRS=(
     "/etc/libvirt/"
-    "/var/lib/libvirt/"
     "/var/log/libvirt/"
+    # "/var/lib/libvirt/"  # Se comenta para manejarlo por separado
 )
 
 for dir in "${LIBVIRT_DIRS[@]}"; do
@@ -142,6 +142,28 @@ for dir in "${LIBVIRT_DIRS[@]}"; do
         echo_info "Directorio $dir no existe. Saltando."
     fi
 done
+
+# Manejar /var/lib/libvirt/ preservando /var/lib/libvirt/images
+LIBVIRT_BASE="/var/lib/libvirt/"
+IMAGES_DIR="${LIBVIRT_BASE}images"
+
+if [[ -d "$LIBVIRT_BASE" ]]; then
+    echo_info "Eliminando contenidos de $LIBVIRT_BASE excepto 'images'..."
+
+    # Verificar si el directorio 'images' existe
+    if [[ -d "$IMAGES_DIR" ]]; then
+        # Eliminar todo excepto el directorio 'images' y su contenido
+        find "$LIBVIRT_BASE" -mindepth 1 ! -path "$IMAGES_DIR" ! -path "${IMAGES_DIR}/*" -exec rm -rf {} +
+        echo_success "Contenidos de $LIBVIRT_BASE eliminados excepto 'images'."
+    else
+        # Si 'images' no existe, eliminar todo el directorio libvirt
+        echo_info "El directorio 'images' no existe en $LIBVIRT_BASE. Eliminando todo el directorio."
+        rm -rf "$LIBVIRT_BASE"
+        echo_success "Directorio $LIBVIRT_BASE eliminado."
+    fi
+else
+    echo_info "Directorio $LIBVIRT_BASE no existe. Saltando."
+fi
 
 # ----------------------------------------
 # Finalización
