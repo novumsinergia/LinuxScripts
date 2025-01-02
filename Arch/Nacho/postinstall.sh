@@ -10,6 +10,6 @@ sudo pacman -Rs xterm --noconfirm
 
 
 
-rm -rf ~/postinstall
+rm -rf ~/LinuxScripts
 
 
