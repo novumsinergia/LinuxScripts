@@ -15,5 +15,5 @@ sudo sed -i.bak "63s/.*/GRUB_DISABLE_OS_PROBER="false"/" /etc/default/grub
 rm -rf ~/LinuxScripts
 
 
-sudo pacman -S sddm sddm-kcm  --noconfirm --needed;  systemctl enable sddm.service
+sudo pacman -S sddm sddm-kcm  --noconfirm --needed;  systemctl start sddm
 
