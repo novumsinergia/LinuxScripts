@@ -17,4 +17,3 @@ rm -rf ~/LinuxScripts
 
 sudo pacman -S sddm sddm-kcm  --noconfirm --needed;  systemctl enable sddm.service
 
-grub-mkconfig -o /boot/grub/grub.cfg
