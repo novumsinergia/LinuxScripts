@@ -19,6 +19,6 @@ rm -rf ~/LinuxScripts
 
 
 
-sudo systemctl enable sddm.service
+sudo systemctl start sddm
 
 grub-mkconfig -o /boot/grub/grub.cfg
