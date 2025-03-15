@@ -7,7 +7,7 @@ sudo pacman -S sudo pacman -Sy --noconfirm
 
 sudo pacman -S sudo pacman -S tde-meta --noconfirm
 
-sudo pacman -S sdm amd-ucode intel-ucode okular vlc  ark unrar p7zip grub-customizer firefox firefox-i18n-es-ar kdenlive obs-studio audacity libreoffice-fresh-es hunspell-es_uy telegram-desktop audacious gimp zsh zsh-completions --noconfirm
+sudo pacman -S sddm amd-ucode intel-ucode okular vlc  ark unrar p7zip grub-customizer firefox firefox-i18n-es-ar kdenlive obs-studio audacity libreoffice-fresh-es hunspell-es_uy telegram-desktop audacious gimp zsh zsh-completions --noconfirm
 
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd ..
 
@@ -19,6 +19,6 @@ rm -rf ~/LinuxScripts
 
 
 
-sudo systemctl start sddm
+sudo systemctl enable sddm.service
 
 grub-mkconfig -o /boot/grub/grub.cfg
