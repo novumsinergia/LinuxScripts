@@ -14,9 +14,9 @@ sudo pacman -Sy --needed kiro-keyring kiro-mirrorlist
 if ! grep -q "\[nemesis\]" /etc/pacman.conf; then
     sudo bash -c 'cat << EOF >> /etc/pacman.conf
 
-[nemesis]
-SigLevel = PackageRequired
-Server = https://erikdubois.github.io/nemesis/\$repo/\$arch
+[nemesis_repo]
+Server = https://erikdubois.github.io/$repo/$arch
+
 EOF'
     echo "==> Repositorio Nemesis agregado a /etc/pacman.conf"
 fi
