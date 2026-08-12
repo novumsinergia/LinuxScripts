@@ -15,8 +15,7 @@ if ! grep -q "\[nemesis\]" /etc/pacman.conf; then
     sudo bash -c 'cat << EOF >> /etc/pacman.conf
 
 [nemesis_repo]
-Server = https://erikdubois.github.io/$repo/$arch
-
+Include = /etc/pacman.d/kiro-mirrorlist
 EOF'
     echo "==> Repositorio Nemesis agregado a /etc/pacman.conf"
 fi
