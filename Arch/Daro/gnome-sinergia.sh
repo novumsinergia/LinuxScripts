@@ -1,24 +1,32 @@
 #!/bin/bash
 
 # ==========================================
-# 1. AGREGAR REPOSITORIO NEMESIS
+# 1. AGREGAR REPOSITORIO NEMESIS (VÍA KIRO KEYRING)
 # ==========================================
-echo "==> Configurando el repositorio Nemesis (Erik Dubois)..."
+echo "==> Configurando llaves de Kiro / ArcoLinux..."
 
-# Importar y firmar claves GPG
-sudo pacman-key --recv-keys 149ABD0C3A0563EE --keyserver keyserver.ubuntu.com
-sudo pacman-key --lsign-key 149ABD0C3A0563EE
-sudo pacman -Sy --needed kiro-keyring kiro-mirrorlist
+# Descargar e instalar las llaves de Kiro/ArcoLinux directamente
+curl -LO https://github.com/arcolinux/arcolinux-keyring/raw/master/arcolinux-keyring-2024.03.11-1-any.pkg.tar.zst 2>/dev/null || true
 
-# Agregar la entrada a /etc/pacman.conf si no existe
+# Si no encontramos esa versión específica, instalamos directamente el certificado de la clave Kiro/Erik Dubois
+sudo pacman-key --init
+curl -s https://raw.githubusercontent.com/arcolinux/arcolinux-keyring/master/archlinux/arcolinux-keyring.gpg | sudo pacman-key --add -
+sudo pacman-key --lsign-key 313C52873130BCB0 2>/dev/null || true
+sudo pacman-key --lsign-key F3B6074883185386 2>/dev/null || true
+
+# Agregar el repositorio Nemesis a pacman.conf si no existe
 if ! grep -q "\[nemesis\]" /etc/pacman.conf; then
+    echo "==> Agregando repositorio [nemesis]..."
     sudo bash -c 'cat << EOF >> /etc/pacman.conf
 
-[nemesis_repo]
-Include = /etc/pacman.d/kiro-mirrorlist
+[nemesis]
+SigLevel = PackageOptional DatabaseOptional
+Server = https://erikdubois.github.io/nemesis/\$repo/\$arch
 EOF'
-    echo "==> Repositorio Nemesis agregado a /etc/pacman.conf"
 fi
+
+# Sincronizar pacman con las nuevas llaves
+sudo pacman -Sy --noconfirm
 
 # Actualizar las bases de datos de pacman
 sudo pacman -Sy
