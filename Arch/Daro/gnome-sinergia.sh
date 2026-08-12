@@ -6,9 +6,9 @@
 echo "==> Configurando el repositorio Nemesis (Erik Dubois)..."
 
 # Importar y firmar claves GPG
-sudo pacman-key --recv-keys F3B6074883185386 313C52873130BCB0
-sudo pacman-key --lsign-key F3B6074883185386
-sudo pacman-key --lsign-key 313C52873130BCB0
+sudo pacman-key --recv-keys 149ABD0C3A0563EE --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key 149ABD0C3A0563EE
+sudo pacman -Sy --needed kiro-keyring kiro-mirrorlist
 
 # Agregar la entrada a /etc/pacman.conf si no existe
 if ! grep -q "\[nemesis\]" /etc/pacman.conf; then
